@@ -5,7 +5,15 @@
   <input type="email" class="form-control" placeholder="Email address" name="email" ngModel>
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" class="form-control" placeholder="Password" name="password" ngModel>
-  <app-auth-remember></app-auth-remember>
+  <ng-content select=".checkbox-btn"></ng-content>
+
+  <app-auth-message 
+    [style.display]="(showMessage ? 'inherit' : 'none')">
+  </app-auth-message>
+
+  <div *ngIf="showMessage">You will be logged in for 30 days</div>
+
+
   <ng-content select=".btn"></ng-content>
   <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
 </form>

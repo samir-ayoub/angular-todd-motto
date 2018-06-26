@@ -9,6 +9,8 @@ import { User } from './auth-form.interface';
 })
 export class AdvancedComponentsComponent implements OnInit {
 
+  rememberMe = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -19,7 +21,11 @@ export class AdvancedComponentsComponent implements OnInit {
   }
 
   loginUser(user: User) {
-    console.log('Login', user);
+    console.log('Login', user, this.rememberMe);
+  }
+
+  rememberUser(remember: boolean) {
+    this.rememberMe = remember;
   }
 
 }

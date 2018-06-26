@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AdvancedComponentsComponent } from './advanced-components.component';
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import { AuthRememberComponent } from './auth-remember/auth-remember.component';
+import { AuthMessageComponent } from './auth-message/auth-message.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { AuthRememberComponent } from './auth-remember/auth-remember.component';
   declarations: [
     AdvancedComponentsComponent,
     AuthFormComponent,
-    AuthRememberComponent
+    AuthRememberComponent,
+    AuthMessageComponent
   ]
 })
 export class AdvancedComponentsModule { }
