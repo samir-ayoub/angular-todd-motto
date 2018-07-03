@@ -2,16 +2,16 @@
   <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
   <ng-content select="h1"></ng-content>
   <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="email" class="form-control" placeholder="Email address" name="email" ngModel>
+  <input  #email type="email" class="form-control" placeholder="Email address" name="email" ngModel>
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" class="form-control" placeholder="Password" name="password" ngModel>
   <ng-content select=".checkbox-btn"></ng-content>
 
-  <app-auth-message 
+  <app-auth-message
     [style.display]="(showMessage ? 'inherit' : 'none')">
   </app-auth-message>
 
-  <div *ngIf="showMessage">You will be logged in for 30 days</div>
+  <div *ngIf="showMessage">You will be logged in for {{message.days}} days</div>
 
 
   <ng-content select=".btn"></ng-content>

@@ -1,7 +1,7 @@
+import { Component, Output, EventEmitter, AfterContentInit, ContentChild, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+
 import { AuthMessageComponent } from './../auth-message/auth-message.component';
 import { AuthRememberComponent } from './../auth-remember/auth-remember.component';
-import { Component, Output, EventEmitter, AfterContentInit, ContentChild, AfterViewInit, ViewChild } from '@angular/core';
-
 import { User } from '../auth-form.interface';
 
 @Component({
@@ -13,19 +13,23 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
 
   showMessage: boolean;
 
+  @ViewChild('email') email: ElementRef;
+
   @ViewChild(AuthMessageComponent) message: AuthMessageComponent;
 
   @ContentChild(AuthRememberComponent) remember: AuthRememberComponent;
 
   @Output() submitted: EventEmitter<User> = new EventEmitter<User>();
 
-  constructor() { }
+  constructor(
+    private renderer: Renderer2
+  ) { }
 
   ngAfterContentInit() {
 
-    // if (this.message) {
-    //   this.message.days = 30;
-    // }
+    if (this.message) {
+      this.message.days = 30;
+    }
 
     if (this.remember) {
       this.remember.checked.subscribe((checked: boolean) => {
@@ -35,9 +39,9 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
 }
 
 ngAfterViewInit() {
-  console.log(this.message.days);
-  this.message.days = 30;
-  console.log(this.message.days);
+  this.renderer.setAttribute(this.email.nativeElement, 'placeholder', 'Enter your email' );
+  this.renderer.addClass(this.email.nativeElement, 'email');
+  this.email.nativeElement.focus();
 
 
 }
