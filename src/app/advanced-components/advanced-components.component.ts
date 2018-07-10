@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef, AfterContentInit } from '@angular/core';
 
+import { AuthFormComponent } from './auth-form/auth-form.component';
 import { User } from './auth-form.interface';
 
 @Component({
@@ -7,13 +8,21 @@ import { User } from './auth-form.interface';
   templateUrl: './advanced-components.component.html',
   styleUrls: ['./advanced-components.component.css']
 })
-export class AdvancedComponentsComponent implements OnInit {
+export class AdvancedComponentsComponent implements AfterContentInit {
 
   rememberMe = false;
 
-  constructor() { }
+  @ViewChild('entry', { read: ViewContainerRef }) entry: ViewContainerRef;
 
-  ngOnInit() {
+  constructor(
+    private resolver: ComponentFactoryResolver
+  ) { }
+
+
+  ngAfterContentInit() {
+    const authFormFactory = this.resolver.resolveComponentFactory(AuthFormComponent);
+    const component = this.entry.createComponent(authFormFactory);
+    component.instance.titleInjectedDinamically = 'Title with component factory';
   }
 
   createUser(user: User) {
