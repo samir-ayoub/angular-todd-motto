@@ -12,7 +12,6 @@ import { User } from '../auth-form.interface';
 export class AuthFormComponent implements AfterContentInit, AfterViewInit {
 
   showMessage: boolean;
-  titleInjectedDinamically: string;
 
   @ViewChild('email') email: ElementRef;
 

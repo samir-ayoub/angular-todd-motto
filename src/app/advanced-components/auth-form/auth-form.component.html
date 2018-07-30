@@ -1,6 +1,5 @@
 <form class="form-signin" (ngSubmit)="onSubmit(form.value)" #form="ngForm">
   <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-  <div class="dinamically-set-title"><h1 class="title">{{ titleInjectedDinamically }}</h1></div>
   <ng-content select="h1"></ng-content>
   <label for="inputEmail" class="sr-only">Email address</label>
   <input  #email type="email" class="form-control" placeholder="Email address" name="email" ngModel>

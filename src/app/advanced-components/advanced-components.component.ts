@@ -1,6 +1,7 @@
-import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef, AfterContentInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef, AfterContentInit, ComponentRef } from '@angular/core';
 
 import { AuthFormComponent } from './auth-form/auth-form.component';
+import { DynamicAuthFormComponent } from './dynamic-auth-form/dynamic-auth-form.component';
 import { User } from './auth-form.interface';
 
 @Component({
@@ -10,6 +11,7 @@ import { User } from './auth-form.interface';
 })
 export class AdvancedComponentsComponent implements AfterContentInit {
 
+  component: ComponentRef<DynamicAuthFormComponent>;
   rememberMe = false;
 
   @ViewChild('entry', { read: ViewContainerRef }) entry: ViewContainerRef;
@@ -20,13 +22,24 @@ export class AdvancedComponentsComponent implements AfterContentInit {
 
 
   ngAfterContentInit() {
-    const authFormFactory = this.resolver.resolveComponentFactory(AuthFormComponent);
-    const component = this.entry.createComponent(authFormFactory);
-    component.instance.titleInjectedDinamically = 'Title with component factory';
+    const authFormFactory = this.resolver.resolveComponentFactory(DynamicAuthFormComponent);
+    this.entry.createComponent(authFormFactory);
+    this.component = this.entry.createComponent(authFormFactory, 0);
+    this.component.instance.titleInjectedDinamically = 'Title with component factory';
+    this.component.instance.submitted.subscribe(this.loginUser);
   }
 
   createUser(user: User) {
     console.log('Create Account', user);
+  }
+
+
+  destroyComponent() {
+    this.component.destroy();
+  }
+
+  moveComponent() {
+    this.entry.move(this.component.hostView, 1);
   }
 
   loginUser(user: User) {

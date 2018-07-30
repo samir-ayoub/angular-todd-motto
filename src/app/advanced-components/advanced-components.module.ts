@@ -6,6 +6,7 @@ import { AdvancedComponentsComponent } from './advanced-components.component';
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import { AuthRememberComponent } from './auth-remember/auth-remember.component';
 import { AuthMessageComponent } from './auth-message/auth-message.component';
+import { DynamicAuthFormComponent } from './dynamic-auth-form/dynamic-auth-form.component';
 
 @NgModule({
   imports: [
@@ -19,10 +20,12 @@ import { AuthMessageComponent } from './auth-message/auth-message.component';
     AdvancedComponentsComponent,
     AuthFormComponent,
     AuthRememberComponent,
-    AuthMessageComponent
+    AuthMessageComponent,
+    DynamicAuthFormComponent
   ],
   entryComponents: [
-    AuthFormComponent
+    AuthFormComponent,
+    DynamicAuthFormComponent
   ]
 })
 export class AdvancedComponentsModule { }
