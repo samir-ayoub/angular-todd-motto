@@ -37,3 +37,15 @@
     </div>
   </div>
 </div>
+
+<ng-container [ngTemplateOutlet]="tmpl2"></ng-container>
+
+<ng-template #tmpl2>
+  Samir Ayoub : São Paulo BR
+</ng-template>
+
+<div #entryDynamicTemp></div>
+
+<ng-template #tmpl let-foo let-location="location">
+  {{ foo }} : {{ location }}
+</ng-template>

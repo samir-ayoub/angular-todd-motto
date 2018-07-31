@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef, AfterContentInit, ComponentRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef, AfterContentInit, ComponentRef, TemplateRef } from '@angular/core';
 
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import { DynamicAuthFormComponent } from './dynamic-auth-form/dynamic-auth-form.component';
@@ -15,6 +15,8 @@ export class AdvancedComponentsComponent implements AfterContentInit {
   rememberMe = false;
 
   @ViewChild('entry', { read: ViewContainerRef }) entry: ViewContainerRef;
+  @ViewChild('entryDynamicTemp', { read: ViewContainerRef }) entryDynamicTemp: ViewContainerRef;
+  @ViewChild('tmpl') tmpl: TemplateRef<any>;
 
   constructor(
     private resolver: ComponentFactoryResolver
@@ -22,11 +24,17 @@ export class AdvancedComponentsComponent implements AfterContentInit {
 
 
   ngAfterContentInit() {
-    const authFormFactory = this.resolver.resolveComponentFactory(DynamicAuthFormComponent);
-    this.entry.createComponent(authFormFactory);
-    this.component = this.entry.createComponent(authFormFactory, 0);
-    this.component.instance.titleInjectedDinamically = 'Title with component factory';
-    this.component.instance.submitted.subscribe(this.loginUser);
+    // const authFormFactory = this.resolver.resolveComponentFactory(DynamicAuthFormComponent);
+    // this.entry.createComponent(authFormFactory);
+    // this.component = this.entry.createComponent(authFormFactory, 0);
+    // this.component.instance.titleInjectedDinamically = 'Title with component factory';
+    // this.component.instance.submitted.subscribe(this.loginUser);
+
+    // dynamic temp
+    this.entryDynamicTemp.createEmbeddedView(this.tmpl, {
+      $implicit: 'Samir Ayoub',
+      location: 'Sao Paulo, BR'
+    });
   }
 
   createUser(user: User) {
