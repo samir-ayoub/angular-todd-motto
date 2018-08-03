@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, AfterContentInit, ContentChild, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 
-import { AuthMessageComponent } from './../auth-message/auth-message.component';
-import { AuthRememberComponent } from './../auth-remember/auth-remember.component';
+import { AuthMessageComponent } from '../auth-message/auth-message.component';
+import { AuthRememberComponent } from '../auth-remember/auth-remember.component';
 import { User } from '../auth-form.interface';
 
 @Component({

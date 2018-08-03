@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { User } from './../auth-form.interface';
+import { User } from '../auth-form.interface';
 
 @Component({
   selector: 'app-dynamic-auth-form',

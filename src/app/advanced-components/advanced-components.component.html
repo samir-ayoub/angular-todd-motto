@@ -38,10 +38,10 @@
   </div>
 </div>
 
-<ng-container [ngTemplateOutlet]="tmpl2"></ng-container>
+<ng-container [ngTemplateOutlet]="tmpl2" [ngTemplateOutletContext]="ctx"></ng-container>
 
-<ng-template #tmpl2>
-  Samir Ayoub : São Paulo BR
+<ng-template #tmpl2 let-name let-location="location">
+  {{ name }} : {{ location }}
 </ng-template>
 
 <div #entryDynamicTemp></div>

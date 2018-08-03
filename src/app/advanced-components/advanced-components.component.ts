@@ -11,6 +11,11 @@ import { User } from './auth-form.interface';
 })
 export class AdvancedComponentsComponent implements AfterContentInit {
 
+  ctx = {
+    $implicit: 'Samiro',
+    location: 'SP - BR'
+  };
+
   component: ComponentRef<DynamicAuthFormComponent>;
   rememberMe = false;
 
