@@ -1,10 +1,34 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-md-12">
       <label for="cardNumber">Insira seu cartão</label>
       <div class="input-group mb-3">
         <input credit-card name="credit-card" type="text" [value]="foo" class="form-control" id="cardNumber" placeholder="Insira seu cartão" aria-describedby="basic-addon3">
       </div>
+
+      <label #myTooltip="tooltip" tooltip="Três dígitos localizados na parte de atrás do cartão">Insira o código de segurança 
+        <span (mouseover)="myTooltip.show()" (mouseout)="myTooltip.hide()">(?)</span>
+      </label>
+      <input type="text">
+    </div>
+  </div>
+</div> -->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+        <div class="form-group">
+          <label for="cardNumber">Insira seu cartão</label>
+          <input credit-card name="credit-card" type="text" [value]="foo" class="form-control" id="cardNumber" placeholder="Insira seu cartão" aria-describedby="basic-addon3">
+        </div>
+        <div class="form-group">
+          <label #myTooltip="tooltip" tooltip="Três dígitos localizados na parte de atrás do cartão">Insira o código de segurança<span (mouseover)="myTooltip.show()" (mouseout)="myTooltip.hide()">(?)</span></label>
+          <input credit-card name="credit-card" type="text" [value]="foo" class="form-control" id="cardNumber" placeholder="Insira seu cartão" aria-describedby="basic-addon3">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
   </div>
 </div>

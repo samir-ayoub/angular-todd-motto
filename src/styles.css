@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+.input-tooltip {
+  background-color: rgba(0,0,0,0.3);
+  opacity: 0;
+}
+
+.tooltip--active {
+  opacity: 1;
+}
