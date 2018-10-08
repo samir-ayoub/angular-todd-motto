@@ -1,10 +1,10 @@
+import { PipesModule } from './pipes/pipes.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AdvancedComponentsModule } from './advanced-components/advanced-components.module';
 import { DirectivesModule } from './directives/directives.module';
 import { AppComponent } from './app.component';
-
 
 @NgModule({
   declarations: [
@@ -13,7 +13,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AdvancedComponentsModule,
-    DirectivesModule
+    DirectivesModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
