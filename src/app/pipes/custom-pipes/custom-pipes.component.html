@@ -1,6 +1,18 @@
+
+<!-- usando custom pipes na DOM -->
+
 <div>
   <div *ngFor="let file of files">
     <p>{{ file.name }}</p>
     <p>{{ file.size | filesize: ' mb' }}</p>
   </div>
 </div>
+
+<div>
+  <div *ngFor="let file of mapped">
+    <p>{{ file.name }}</p>
+    <p>{{ file.size }}</p>
+  </div>
+</div>
+
+<!-- trabalhando custom pipes antes de ir pra DOM -->
