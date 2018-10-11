@@ -4,6 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ReactiveFormsComponent } from './reactive-forms.component';
 import { StockInventoryComponent } from './stock-inventory/stock-inventory.component';
+import { StockBranchComponent } from './stock-branch/stock-branch.component';
+import { StockSelectorComponent } from './stock-selector/stock-selector.component';
+import { StockProductsComponent } from './stock-products/stock-products.component';
 
 @NgModule({
   imports: [
@@ -14,6 +17,6 @@ import { StockInventoryComponent } from './stock-inventory/stock-inventory.compo
   exports: [
     ReactiveFormsComponent
   ],
-  declarations: [ReactiveFormsComponent, StockInventoryComponent],
+  declarations: [ReactiveFormsComponent, StockInventoryComponent, StockBranchComponent, StockSelectorComponent, StockProductsComponent],
 })
 export class ReactiveFormsExamplesModule { }
