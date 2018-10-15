@@ -1,5 +1,5 @@
 import { FormGroup } from '@angular/forms';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Product } from './../models/product.interface';
 
@@ -14,11 +14,18 @@ export class StockSelectorComponent implements OnInit {
     parent: FormGroup;
 
   @Input()
-    products: Product[];
+  products: Product[];
+
+  @Output()
+  added = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onAdd() {
+    this.added.emit(this.parent.get('selector').value)
   }
 
 }
