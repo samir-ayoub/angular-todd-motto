@@ -4,8 +4,9 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/forkJoin';
 
-import { Product, Item } from './../models/product.interface';
 import { StockInventoryService } from '../services/stock-inventory.service';
+
+import { Product, Item } from './../models/product.interface';
 
 @Component({
   selector: 'app-stock-inventory',
@@ -15,6 +16,7 @@ import { StockInventoryService } from '../services/stock-inventory.service';
 export class StockInventoryComponent implements OnInit {
 
   products: Product[];
+  productMap: Map<number, Product>;
 
   form = this.fb.group({
     store: this.fb.group({
@@ -35,8 +37,18 @@ ngOnInit() {
   const products = this.stockService.getProducts();
 
   Observable
-    .forkJoin(cart, products)
-    .subscribe(data => console.log(data));
+  .forkJoin(cart, products)
+  .subscribe(([cart, products]: [Item[], Product[]])  => {
+    
+    const myMap = products
+      .map<[number, Product]>(product => [product.id, product]);
+      
+      this.productMap = new Map<number, Product>(myMap);
+      this.products = products;
+
+      cart.forEach(item => this.addStock(item));
+
+    });
 }
 
 createStock(stock) {
@@ -57,7 +69,7 @@ removeStock( { group, index }: {group: FormGroup, index: number}) {
 }
 
 onSubmit() {
-  console.log('Submit!', this.form.value);
+  // console.log('Submit!', this.form.value);
 }
 
 }

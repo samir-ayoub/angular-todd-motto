@@ -43,7 +43,7 @@ export class AdvancedComponentsComponent implements AfterContentInit {
   }
 
   createUser(user: User) {
-    console.log('Create Account', user);
+    // console.log('Create Account', user);
   }
 
 
@@ -56,7 +56,7 @@ export class AdvancedComponentsComponent implements AfterContentInit {
   }
 
   loginUser(user: User) {
-    console.log('Login', user, this.rememberMe);
+    // console.log('Login', user, this.rememberMe);
   }
 
   rememberUser(remember: boolean) {

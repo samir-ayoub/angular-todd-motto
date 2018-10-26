@@ -2,7 +2,8 @@
   <div formArrayName="stock">
     <div *ngFor="let item of stocks; let i = index;">
       <div [formGroupName]="i">
-        <div class="item">{{ item.value.product_id }}</div>
+        <div class="item">{{ getProduct(item.value.product_id).name }}</div>
+        <div class="item">{{ getProduct(item.value.product_id).price | currency: 'BRL' }}</div>
         <input type="number"
           step="10"
           min="10"
