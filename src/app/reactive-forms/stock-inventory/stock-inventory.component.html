@@ -17,6 +17,8 @@
       (removed)="removeStock($event)">
     </app-stock-products>
 
+    <div> Total: {{ total | currency:'BRL' }}</div>
+
     <pre>{{ form.value | json }}</pre>
   </form>
 </div>
