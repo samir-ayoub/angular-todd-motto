@@ -9,6 +9,7 @@ import { StockInventoryComponent } from './stock-inventory/stock-inventory.compo
 import { StockInventoryService } from './services/stock-inventory.service';
 import { StockProductsComponent } from './stock-products/stock-products.component';
 import { StockSelectorComponent } from './stock-selector/stock-selector.component';
+import { StockCounterComponent } from './stock-counter/stock-counter.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { StockSelectorComponent } from './stock-selector/stock-selector.componen
   exports: [
     ReactiveFormsComponent
   ],
-  declarations: [ReactiveFormsComponent, StockInventoryComponent, StockBranchComponent, StockSelectorComponent, StockProductsComponent],
+  declarations: [ReactiveFormsComponent, StockInventoryComponent, StockBranchComponent, StockSelectorComponent, StockProductsComponent, StockCounterComponent],
   providers: [StockInventoryService]
 })
 export class ReactiveFormsExamplesModule { }

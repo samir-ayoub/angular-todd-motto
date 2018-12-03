@@ -13,6 +13,15 @@
       min="10"
       max="1000"
       formControlName="quantity">
+
+      <app-stock-counter
+        [step]="10"
+        [min]="10"
+        [max]="1000"
+        formControlName="quantity">
+      </app-stock-counter>
+
+
       <button 
         class="btn btn-primary mt-2 mb-2" 
         type="button"
