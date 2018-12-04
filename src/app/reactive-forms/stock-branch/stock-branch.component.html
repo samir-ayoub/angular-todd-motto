@@ -3,9 +3,15 @@
 
     <label for="branch">Branch</label>
     <input formControlName="branch" type="text" class="form-control" id="branch">
+    <div *ngIf="required('branch')">
+      Branch ID required
+    </div>
   
     <label for="code">Code</label>
     <input formControlName="code" type="text" class="form-control" id="code">
+    <div *ngIf="required('code')">
+      Manager ID required
+    </div>
   
     <button type="submit" class="btn btn-primary mb-2 mt-2">Order Stock</button>
   </div>
